@@ -5,12 +5,23 @@
     --pupil-color: #c6cbef;
 }
 
-body {
+
+/* body {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+} */
+
+body {
+    margin-top: 305px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     align-items: center;
     background: var(--bg-color);
 }
@@ -158,7 +169,8 @@ body {
     height: 49px;
     background-color: rgb(235, 235, 110);
     border-radius: 50% 50% 50% 50%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-right: 21px;
 }
 
 .mouth {
