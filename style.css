@@ -1,0 +1,227 @@
+:root {
+    --bg-color: #000000;
+    --eye-color: #fffdf9;
+    --iris-color: #343434;
+    --pupil-color: #c6cbef;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+}
+
+.eye {
+    width: 100px;
+    height: 100px;
+    background: var(--eye-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    clip-path: circle(50% at center);
+    position: relative;
+}
+
+.eye .iris {
+    width: 40%;
+    height: 40%;
+    background: var(--iris-color);
+    border-radius: 50%;
+    animation: movement 6s ease-in-out infinite;
+}
+
+.eye .upper-pupil,
+.eye .lower-pupil {
+    width: 100%;
+    height: 20px;
+    background: var(--pupil-color);
+    position: absolute;
+    animation: blink 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+.eye .upper-pupil {
+    top: 0;
+}
+
+.eye .lower-pupil {
+    bottom: 0;
+}
+
+@keyframes movement {
+    0%,
+    10% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-80%);
+    }
+    30%,
+    80% {
+        transform: translateX(0);
+    }
+    90% {
+        transform: translateX(80%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+/* @keyframes blink {
+    0%,
+    70%,
+    100% {
+        height: 20px;
+        opacity: 1;
+    }
+    35%,
+    40%,
+    50%,
+    55% {
+        height: 0;
+        opacity: 0;
+    }
+} */
+
+@keyframes blink {
+    0%,
+    10% {
+        height: 20px;
+    }
+    5%,
+    15% {
+        height: 0;
+    }
+    20%,
+    30% {
+        height: 20px;
+    }
+    15%,
+    35% {
+        height: 0;
+    }
+    40%,
+    50% {
+        height: 20px;
+    }
+    35%,
+    55% {
+        height: 0;
+    }
+    60%,
+    70% {
+        height: 20px;
+    }
+    55%,
+    75% {
+        height: 0;
+    }
+    80%,
+    90% {
+        height: 20px;
+    }
+    75%,
+    95% {
+        height: 0;
+    }
+}
+
+.visualizer {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.visualizer .mouth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visualizer .mouth>div {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visualizer .mouth>div .line {
+    width: 100%;
+    height: 49px;
+    background-color: rgb(235, 235, 110);
+    border-radius: 50% 50% 50% 50%;
+    margin-bottom: 10px;
+}
+
+.mouth {
+    width: 278px;
+    /* Adjust according to your needs */
+    height: 80px;
+    /* Adjust according to your needs */
+    position: absolute;
+    top: 70%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.line {
+    transform-origin: center 80%;
+    animation: mouth-animation 2s infinite alternate;
+}
+
+
+/* @keyframes mouth-animation {
+    0% {
+        transform: scaleY(1) scaleX(1);
+    }
+    50% {
+        transform: scaleY(0.5) scaleX(1.2);
+    }
+    100% {
+        transform: scaleY(1) scaleX(1);
+    }
+} */
+
+@keyframes mouth-animation {
+    0% {
+        transform: scaleY(1);
+        clip-path: polygon(15% 75%, 50% 50%, 85% 75%, 50% 100%);
+    }
+    20% {
+        transform: scaleY(0.1) translateY(40%);
+        clip-path: polygon(10% 0%, 50% 85%, 90% 0%, 50% 80%);
+    }
+    40% {
+        transform: scaleY(0.4) translateY(20%);
+        clip-path: polygon(10% 10%, 50% 60%, 90% 10%, 50% 95%);
+    }
+    60% {
+        transform: scaleY(0.2) translateY(30%);
+        clip-path: polygon(10% 5%, 50% 75%, 90% 5%, 50% 85%);
+    }
+    80% {
+        transform: scaleY(0.6) translateY(10%);
+        clip-path: polygon(10% 20%, 50% 60%, 90% 20%, 50% 100%);
+    }
+    90% {
+        transform: scaleY(1) translateY(0%);
+        clip-path: polygon(10% 35%, 50% 65%, 90% 35%, 50% 100%);
+    }
+    95% {
+        transform: scaleY(0.6) translateY(-10%);
+        clip-path: polygon(10% 20%, 50% 70%, 90% 20%, 50% 100%);
+    }
+    100% {
+        transform: scaleY(1) translateY(0%);
+        clip-path: polygon(10% 35%, 50% 65%, 90% 35%, 50% 100%);
+    }
+}
